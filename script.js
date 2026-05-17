@@ -44,9 +44,15 @@ btn.addEventListener("click", function (e) {
             updateFirstNumber(firstNumber)
         }
     } else if (e.target.textContent == "+" || e.target.textContent == "-" || e.target.textContent == "*" || e.target.textContent == "/") {
-        operator = e.target.textContent
+        if (firstNumber !== "" && secondNumber !== "") {
+            firstNumber = Number(firstNumber)
+            secondNumber = Number(secondNumber)
+            firstNumber = operate(checkOperator(operator), firstNumber, secondNumber)
+            secondNumber = ""
+        }
+        if (firstNumber !== "") operator = e.target.textContent
         clearValue()
-    } else if (e.target.textContent == "=" && firstNumber !== null && operator !== null && secondNumber !== null) {
+    } else if (e.target.textContent == "=" && firstNumber !== "" && operator !== undefined && secondNumber !== "") {
         if (operator == "/" && secondNumber == 0){
             clearValue()
             firstNumber = ""
@@ -96,5 +102,13 @@ function updateSecondNumber(number){
 
 function showFinalValue(number) {
     const text = document.querySelector("#text")
-    text.value = number
+    text.value = checkWholeNumber(number)
+}
+
+function checkWholeNumber(n) {
+    if (Number.isInteger(n)){
+        return n
+    } else{
+        return n.toFixed(2)
+    }
 }

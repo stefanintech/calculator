@@ -16,10 +16,14 @@
 }
 
 body {
-  /* 4. Increase line-height */
   line-height: 1.5;
-  /* 5. Improve text rendering */
   -webkit-font-smoothing: antialiased;
+  background: #111113;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  font-family: 'SF Mono', 'Fira Mono', monospace;
 }
 
 /* 6. Improve media defaults */
@@ -55,18 +59,85 @@ h1, h2, h3, h4, h5, h6 {
 
 .calculator {
     display: flex;
-    border: 2px solid blue;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    background: #1c1c1e;
+    border-radius: 20px;
+    padding: 24px 20px 20px;
+    width: 300px;
+    border: none;
+    align-items: stretch;
+}
+
+/* .buttons {
+    display: flex;
+    border: 2px red solid;
+} */
+
+#text {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #f5f5f7;
+    font-size: 52px;
+    font-weight: 300;
+    text-align: right;
+    width: 100%;
+    letter-spacing: -1px;
+    padding: 8px 8px 16px;
+    caret-color: #f4a020;
+    min-height: 100px;
 }
 
 .buttons {
-    display: flex;
-    border: 2px red solid;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: none;
 }
 
-#text {
-    width: 300px;
-    text-align: center;
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 }
+
+.buttons button {
+  flex: 1;
+  padding: 18px 0;
+  border: none;
+  border-radius: 50px;
+  font-family: 'SF Mono', 'Fira Mono', monospace;
+  font-size: 18px;
+  color: #f5f5f7;
+  background: #2c2c2e;
+  cursor: pointer;
+}
+
+.buttons button.operator {
+  background: #f4a020;
+  color: #1c1c1e;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.buttons button.clear {
+  background: #3a3a3c;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
+
+.buttons button.zero {
+  flex: 2;
+  text-align: left;
+  padding-left: 28px;
+  justify-content: flex-start;
+}
+
+h1 {
+  color: #f5f5f7;
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 24px;
+  letter-spacing: 0.5px;
+}
+
